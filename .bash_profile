@@ -1,6 +1,6 @@
 source ~/.bash_colors
 source ~/.bash_cursor
-[-f ~/.bash_local] && source ~/.bash_local
+[ -f "~/.bash_local" ] && source ~/.bash_local
 
 function branch {
   if [ -d .git ]; then
