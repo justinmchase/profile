@@ -1,0 +1,48 @@
+
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
+
+
+function cursor-pos() {
+  echo "\033[$1;$2H"
+  # OR
+  # \033[<L>;<C>f
+}
+
+function cursor-up() {
+  echo "\033[$1A"
+}
+
+function cursor-down() {
+  echo "\033[$1B"
+}
+
+function cursor-forward() {
+  echo "\033[$1C"
+}
+
+function cursor-back() {
+  echo "\033[$1D"
+}
+
+function clear-screen() {
+  echo "\033[2J"
+}
+
+function clear-line() {
+  echo "\033[K"
+}
+
+function cursor-save() {
+  echo "\033[s"
+}
+
+function cursor-restore() {
+  echo "\033[u"
+}
