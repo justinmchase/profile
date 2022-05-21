@@ -1,5 +1,5 @@
-source ~/.bash_colors
-source ~/.bash_cursor
+source ~/.justin/.bash_colors
+source ~/.justin/.bash_cursor
 [ -f "~/.bash_local" ] && source ~/.bash_local
 
 function status-color {
@@ -35,8 +35,7 @@ function prompt-command {
     ERR="$Red"
   fi
 
-  echo -e "$Green$(ptime)$White:$Cyan$(whoami)$White:$Blue$(dirs +0)$White:$(branch)"
-  echo -n -e "$ERR>$Color_Off "
+  echo -ne "$Green$(ptime)$White:$Cyan$(whoami)$White:$Blue$(dirs +0)$White:$(branch)\n$ERR>$Color_Off "
 }
 
 function git-prune {
@@ -60,12 +59,6 @@ function kill-app() {
 }
 
 alias guid="uuidgen | tr -d - | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"
-alias k="kubectl"
 
-PS1="\[$IGreen\]\t\[$IWhite\]:\[$IRed\]\u\[$IWhite\]:\[$IYellow\]\w\$(branch)\[$Color_Off\]\n\[\$(status-color $?)\]>\[$Color_Off\] "
 PS1=
 PROMPT_COMMAND="prompt-command"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

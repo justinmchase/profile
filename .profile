@@ -1,8 +1,8 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    if [ -f "$HOME/.justin/.bashrc" ]; then
+	. "$HOME/.justin/.bashrc"
     fi
 fi
 
@@ -15,3 +15,11 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+. $HOME/.justin/.deno
+. $HOME/.justin/.node
+
+alias k="kubectl"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
