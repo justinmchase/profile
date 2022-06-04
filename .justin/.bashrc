@@ -23,21 +23,6 @@ function branch {
   fi
 }
 
-function ptime {
-  echo -e "$(date '+%T')"
-}
-
-function prompt-command {
-  if [ "$?" == "0" ]
-  then
-    ERR="$Green"
-  else
-    ERR="$Red"
-  fi
-
-  echo -ne "$Green$(ptime)$White:$Cyan$(whoami)$White:$Blue$(dirs +0)$White:$(branch)\n$ERR>$Color_Off "
-}
-
 function git-prune {
   git remote prune origin
   git fetch --prune
@@ -58,7 +43,5 @@ function kill-app() {
   ps aux | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
-alias guid="uuidgen | tr -d - | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"
-
-PS1=
-PROMPT_COMMAND="prompt-command"
+PS1="\[$IGreen\]\t\[$IWhite\]:\[$IRed\]\u\[$IWhite\]:\[$IYellow\]\w\$(branch)\[$Color_Off\]\n\[\$(status-color \$?)\]>\[$Color_Off\] "
+PROMPT_COMMAND=

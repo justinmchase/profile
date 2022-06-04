@@ -1,25 +1,11 @@
+# set PATH so it includes user's private bin if it exists
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.justin/.bashrc" ]; then
-	. "$HOME/.justin/.bashrc"
-    fi
-fi
+[ -n "$BASH_VERSION" ] && . "$HOME/.justin/.bashrc"
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-. $HOME/.justin/.deno
-. $HOME/.justin/.node
-
-alias k="kubectl"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+. $HOME/.justin/common.sh
+. $HOME/.justin/deno.sh
+. $HOME/.justin/node.sh
+. $HOME/.justin/kubernetes.sh
