@@ -43,5 +43,12 @@ function kill-app() {
   ps aux | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
+
+# If not running interactively, don't set PS1
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 PS1="\[$IGreen\]\t\[$IWhite\]:\[$IRed\]\u\[$IWhite\]:\[$IYellow\]\w\$(branch)\[$Color_Off\]\n\[\$(status-color \$?)\]>\[$Color_Off\] "
 PROMPT_COMMAND=
