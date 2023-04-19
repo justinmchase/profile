@@ -1,6 +1,6 @@
 source ~/.justin/.bash_colors
 source ~/.justin/.bash_cursor
-[ -f "~/.bash_local" ] && source ~/.bash_local
+[ -f ~/.bash_local ] && source ~/.bash_local
 
 function status-color {
   if [ "$1" == "0" ]
