@@ -16,9 +16,9 @@ function branch {
     name=$(git rev-parse --symbolic-full-name --abbrev-ref @ 2> /dev/null)
     tags=$(git name-rev --name-only @ 2> /dev/null)
     if [ "$name" == "$tags" ]; then
-      echo -e "$Purple$name$Color_Off"
+      echo -e "$Color_Off:$Purple$name$Color_Off"
     else
-      echo -e "$Purple$name $White($Cyan$tags$White)$Color_Off"
+      echo -e "$Color_Off:$Purple$name $White($Cyan$tags$White)$Color_Off"
     fi
   fi
 }
