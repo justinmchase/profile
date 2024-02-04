@@ -43,6 +43,17 @@ function kill-app() {
   ps aux | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
+function repo() {
+  URL=$1
+  DIR=$(URL#https://}
+  DIR=$HOME/code/${DIR%%.git}
+  if [[ ! -d $DIR ]]; then
+    echo "$URL to $DIR"
+    git clone $URL $DIR
+  fi
+  code $DIR
+}
+
 
 # If not running interactively, don't set PS1
 case $- in

@@ -16,3 +16,5 @@ echo "$(date --iso-8601)" > $HOME/.justin/.last
 alias pdate="date --iso-8601"
 alias ptime="date '+%T'"
 alias guid="uuidgen | tr -d - | tr '[:upper:]' '[:lower:]'"
+alias tf="terraform"
+alias k="kubectl"

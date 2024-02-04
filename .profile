@@ -9,3 +9,4 @@
 . $HOME/.justin/deno.sh
 . $HOME/.justin/node.sh
 . $HOME/.justin/kubernetes.sh
+. $HOME/.justin/dotnet.sh
